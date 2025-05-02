@@ -53,4 +53,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>ILRepack.exe /out:$(ProjectDir)bin\Merged\$(TargetFileName) $(TargetPath) $(TargetDir)Mono.Cecil.dll</PostBuildEvent>
+  </PropertyGroup>
 </Project>
